@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.exception.SQLGrammarException;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
@@ -21,7 +22,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.beginTransaction();
             session.createSQLQuery(createTableSQL).executeUpdate();
             session.getTransaction().commit();
-        } catch (SQLGrammarException ex) {
+        } catch (Exception e) {
             System.out.println("Таблица уже создана");
         }
     }
@@ -32,7 +33,7 @@ public class UserDaoHibernateImpl implements UserDao {
             session.beginTransaction();
             session.createSQLQuery(dropTableSQL).executeUpdate();
             session.getTransaction().commit();
-        } catch (SQLGrammarException ex) {
+        } catch (Exception ex) {
             System.out.println("Таблица уже удалена");
         }
     }
