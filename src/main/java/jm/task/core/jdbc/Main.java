@@ -10,7 +10,6 @@ public class Main {
     public static void main(String[] args) {
         UserServiceImpl userService = new UserServiceImpl();
         userService.dropUsersTable();
-        userService.dropUsersTable();
         userService.createUsersTable();
 
         List<User> list = Arrays.asList(new User("Jessy", "Pinkman", (byte) 29)
